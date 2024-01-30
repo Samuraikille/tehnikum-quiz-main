@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading2 } from "../components/Heading2";
+import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
 
 const StepThree = () => {
@@ -22,7 +22,7 @@ const StepThree = () => {
             </div>
           </div>
           <div className="question">
-            <Heading2 text={"3. Занимательный вопрос"}/>
+            <Heading headingType={"h2"} headingText={"3. Занимательный вопрос"}/>
             <ul className="emoji-variants">
               <li className="variant-wrapper">
                 <input required type="radio" name="variant" id="variant-1" />

@@ -8,7 +8,7 @@ const Thanks = () => {
       <div className="wrapper">
         <div className="thanks">
           <img src="./img/bell.png" alt="bell" />
-          <Heading text={"Спасибо за прохождение опроса!"}/>
+          <Heading headingType={"h1"} headingText="Спасибо за прохождение опроса!" />
           <p>Получи свою скидку по ссылке ниже или другое блаблабла</p>
           <button type="button" id="get-link">
             <AppButton buttonText={"Получить ссылку"} />

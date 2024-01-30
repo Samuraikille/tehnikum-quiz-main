@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading2 } from "../components/Heading2";
+import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
 
 const StepTwo = () => {
@@ -22,7 +22,7 @@ const StepTwo = () => {
             </div>
           </div>
           <div className="question">
-            <Heading2 text1={"2. Занимательный вопрос"}/>
+            <Heading headingType={"h2"} headingText={"2. Занимательный вопрос"}/>
             <ul className="variants">
               <li className="variant-wrapper">
                 <input required type="radio" name="variant-1" id="variant-1" />

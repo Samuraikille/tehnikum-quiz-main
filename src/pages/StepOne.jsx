@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading2 } from "../components/Heading2";
+import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
 import { AppInput } from "../components/AppInput";
 
@@ -23,7 +23,7 @@ const StepOne = () => {
             </div>
           </div>
           <div className="question">
-            <Heading2 text={"1. Занимательный вопрос"}/>
+            <Heading headingType={"h2"} headingText={"1. Занимательный вопрос"}/>
             <AppInput
               errorText={"Введите номер в правильном формате например"}
               name={"answer"}
