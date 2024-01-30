@@ -6,18 +6,16 @@ export const AppInput = ({
   id,
   inputPlaceholder,
   inputType,
-  inputPatern,
 }) => {
   return (
     <label className="input-wrapper" htmlFor="id">
       {labelText}
       <input
         required
-        type="inputType"
-        name="id"
-        id="id"
-        placeholder="inputPlaceholder"
-        pattern="inputPatern"
+        type={inputType}
+        name={id}
+        id={id}
+        placeholder={inputPlaceholder}        
       />
       <span id="error-message">{errorText}</span>
     </label>

@@ -23,6 +23,12 @@ const StepOne = () => {
           </div>
           <div className="question">
             <Heading2 text={"1. Занимательный вопрос"}/>
+            <AppInput
+              errorText={"Введите номер в правильном формате например"}
+              name={"answer"}
+              inputPlaceholder={"Ваш ответ"}
+              inputType={"text"}
+            />
             <label className="input-wrapper">
               <input
                 required
