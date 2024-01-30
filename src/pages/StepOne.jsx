@@ -1,6 +1,7 @@
 import React from "react";
 import { Heading2 } from "../components/Heading2";
 import { AppButton } from "../components/AppButton";
+import { AppInput } from "../components/AppInput";
 
 const StepOne = () => {
   return (
