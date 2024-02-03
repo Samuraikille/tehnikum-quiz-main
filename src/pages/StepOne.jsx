@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
 import { AppInput } from "../components/AppInput";
 
 const StepOne = () => {
+  const [nameValue, setNameValue] = useState("");
+  const [nameError, setNameError] = useState(false);
+  useEffect(() => {
+    if (!nameValue) {
+      setNameError(true);
+    } else {
+      setNameError(false);
+    }
+  });
+  useEffect(() => {
+    console.log(nameValue);
+  }, [nameValue]);
   return (
     <div className="container">
       <div className="wrapper">
@@ -23,25 +35,20 @@ const StepOne = () => {
             </div>
           </div>
           <div className="question">
-            <Heading headingType={"h2"} headingText={"1. Занимательный вопрос"}/>
+            <Heading
+              headingType={"h2"}
+              headingText={"1. Занимательный вопрос"}
+            />
             <AppInput
+              value={nameValue}
+              onChange={setNameValue}
+              hasError={nameError}
               errorText={"Введите номер в правильном формате например"}
               name={"answer"}
               inputPlaceholder={"Ваш ответ"}
               inputType={"text"}
             />
-            <label className="input-wrapper">
-              <input
-                required
-                type="text"
-                name="answer"
-                placeholder="Ваш ответ"
-              />
-              <span id="error-message">
-                Введите номер в правильном формате например
-              </span>
-            </label>
-            <AppButton buttonText={"Далее"}/>
+            <AppButton buttonText={"Далее"} />
           </div>
         </div>
       </div>
