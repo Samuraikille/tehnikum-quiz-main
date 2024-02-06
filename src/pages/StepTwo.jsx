@@ -1,7 +1,25 @@
 import React from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
-
+import { VariantAnswerItem } from "../components/VariantAnswerItem";
+const VariantData = [
+  {
+    id: "variant-1",
+    text: "Ваш ответ",
+  },
+  {
+    id: "variant-2",
+    text: "Ваш ответ",
+  },
+  {
+    id: "variant-3",
+    text: "Ваш ответ",
+  },
+  {
+    id: "variant-4",
+    text: "Ваш ответ",
+  },
+];
 const StepTwo = () => {
   return (
     <div className="container">
@@ -22,24 +40,15 @@ const StepTwo = () => {
             </div>
           </div>
           <div className="question">
-            <Heading headingType={"h2"} headingText={"2. Занимательный вопрос"}/>
+            <Heading
+              headingType={"h2"}
+              headingText={"2. Занимательный вопрос"}
+            />
             <ul className="variants">
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant-1" id="variant-1" />
-                <label htmlFor="variant-1">Ваш ответ</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant-2" id="variant-2" />
-                <label htmlFor="variant-2">Ваш ответ</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant-3" id="variant-3" />
-                <label htmlFor="variant-3">Ваш ответ</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant-4" id="variant-4" />
-                <label htmlFor="variant-4">Ваш ответ</label>
-              </li>
+              {VariantData &&
+                VariantData.map((elem) => (
+                  <VariantAnswerItem id={elem.id} variantText={elem.text} />
+                ))}
             </ul>
             <AppButton buttonText={"Далее"} />
           </div>

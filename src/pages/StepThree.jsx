@@ -1,6 +1,29 @@
 import React from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
+import { VariantAnswerItem } from "../components/VariantAnswerItem";
+const EmojiData = [
+  {
+    id: "variant-1",
+    emoji: "./img/laugh.png",
+    text: "Ваш ответ",
+  },
+  {
+    id: "variant-2",
+    emoji: "./img/hearts.png",
+    text: "Ваш ответ",
+  },
+  {
+    id: "variant-3",
+    emoji: "./img/smirk.png",
+    text: "Ваш ответ",
+  },
+  {
+    id: "variant-4",
+    emoji: "./img/fright.png",
+    text: "Ваш ответ",
+  },
+];
 
 const StepThree = () => {
   return (
@@ -22,36 +45,19 @@ const StepThree = () => {
             </div>
           </div>
           <div className="question">
-            <Heading headingType={"h2"} headingText={"3. Занимательный вопрос"}/>
+            <Heading
+              headingType={"h2"}
+              headingText={"3. Занимательный вопрос"}
+            />
             <ul className="emoji-variants">
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-1" />
-                <label htmlFor="variant-1">
-                  <img src="./img/laugh.png" alt="laugh" />
-                  <p>Ваш ответ 1</p>
-                </label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-2" />
-                <label htmlFor="variant-2">
-                  <img src="./img/hearts.png" alt="hearts" />
-                  <p>Ваш ответ 2</p>
-                </label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-3" />
-                <label htmlFor="variant-3">
-                  <img src="./img/smirk.png" alt="smirk" />
-                  <p>Ваш ответ 3</p>
-                </label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-4" />
-                <label htmlFor="variant-4">
-                  <img src="./img/fright.png" alt="fright" />
-                  <p>Ваш ответ 4</p>
-                </label>
-              </li>
+              {EmojiData &&
+                EmojiData.map((elem) => (
+                  <VariantAnswerItem
+                    id={elem.id}
+                    emoji={elem.emoji}
+                    variantText={elem.text}
+                  />
+                ))}
             </ul>
             <AppButton buttonText={"Далее"} />
           </div>
