@@ -8,21 +8,25 @@ const EmojiData = [
     id: "variant-1",
     emoji: "./img/laugh.png",
     text: "Ваш ответ 1",
+    altText:"laugh"
   },
   {
     id: "variant-2",
     emoji: "./img/hearts.png",
     text: "Ваш ответ 2",
+    altText:"hearts"
   },
   {
     id: "variant-3",
     emoji: "./img/smirk.png",
     text: "Ваш ответ 3",
+    altText:"smirk"
   },
   {
     id: "variant-4",
     emoji: "./img/fright.png",
     text: "Ваш ответ 4",
+    altText:"fright"
   },
 ];
 
