@@ -14,10 +14,10 @@ export const ProgressBar = ({ currentStep }) => {
         {indicatorStep.map((val, idx) => (
           <div
             key={val}
-            className={`indicator_unit indicator_unit-1 ${
+            className={`indicator__unit indicator__unit-1 ${
               idx < currentStep && "_active"
             }`}
-          ></div>
+          />
         ))}
       </div>
     </div>
