@@ -9,7 +9,7 @@ const StepOne = () => {
   const [textValue, setTextValue] = useState("");
   const [textError, setTextError] = useState(false);
   const goToNextPage = () => {
-    if (!textError) {
+    if (!textValue) {
       navigate("/step-two")
     }
   }

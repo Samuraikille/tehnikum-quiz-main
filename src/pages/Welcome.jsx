@@ -14,7 +14,7 @@ const Welcome = () => {
   const [phoneError, setPhoneError] = useState(false);
 
   const goToNextPage = () => {
-    if (nameError && phoneError) {
+    if (nameValue && phoneValue) {
       navigate("/step-one");
     }
   };

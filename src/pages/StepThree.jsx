@@ -44,7 +44,7 @@ const StepThree = () => {
               <span className="indicator__description">
                 Скидка за прохождение опроса:
               </span>
-              <span className="indicator__value">45%</span>
+              <span className="indicator__value">55%</span>
             </div>
             <div className="indicator__progressbar">
               <div className="indicator__unit indicator__unit-1 _active"></div>
