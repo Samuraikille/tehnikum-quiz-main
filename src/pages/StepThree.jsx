@@ -1,8 +1,8 @@
 import React from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
-import { VariantAnswerItem } from "../components/VariantAnswerItem";
 import { EmojiItem } from "../components/EmojiItem";
+import { useNavigate } from "react-router-dom";
 const EmojiData = [
   {
     id: "variant-1",
@@ -27,6 +27,14 @@ const EmojiData = [
 ];
 
 const StepThree = () => {
+  const navigate = useNavigate();
+
+  const goToNextPage = () => {
+      navigate("/step-four");  
+  };
+  const clickHandler = () => {
+    goToNextPage();
+  };
   return (
     <div className="container">
       <div className="wrapper">
@@ -36,7 +44,7 @@ const StepThree = () => {
               <span className="indicator__description">
                 Скидка за прохождение опроса:
               </span>
-              <span className="indicator__value">15%</span>
+              <span className="indicator__value">45%</span>
             </div>
             <div className="indicator__progressbar">
               <div className="indicator__unit indicator__unit-1 _active"></div>
@@ -52,7 +60,7 @@ const StepThree = () => {
                 <EmojiItem id={elem.id} emoji={elem.emoji} variantText={elem.text} />
               ))}
             </ul>
-            <AppButton buttonText={"Далее"} />
+            <AppButton buttonText={"Далее"} onClick={clickHandler}/>
           </div>
         </div>
       </div>

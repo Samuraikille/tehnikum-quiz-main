@@ -1,8 +1,40 @@
 import React from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
-
+import { VariantAnswerItem } from "../components/VariantAnswerItem";
+import { useNavigate } from "react-router-dom";
+const VariantData = [
+  {
+    id: "variant-1",
+    text: "1",
+  },
+  {
+    id: "variant-2",
+    text: "2",
+  },
+  {
+    id: "variant-3",
+    text: "3",
+  },
+  {
+    id: "variant-4",
+    text: "4",
+  },
+  {
+    id: "variant-5",
+    text: "5",
+  },
+];
 const StepFour = () => {
+  const navigate = useNavigate();
+  const goToNextPage = () => {
+    if(VariantAnswerItem) {
+      navigate("/thanks")
+    }
+  };
+  const clickHandler = () => {
+    goToNextPage();
+  };
   return (
     <div className="container">
       <div className="wrapper">
@@ -22,30 +54,17 @@ const StepFour = () => {
             </div>
           </div>
           <div className="question">
-            <Heading headingType={"h2"} headingText={"4. Занимательный вопрос"}/>
+            <Heading
+              headingType={"h2"}
+              headingText={"4. Занимательный вопрос"}
+            />
             <ul className="level-variants">
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-1" />
-                <label htmlFor="variant-1">1</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-2" />
-                <label htmlFor="variant-2">2</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-3" />
-                <label htmlFor="variant-3">3</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-4" />
-                <label htmlFor="variant-4">4</label>
-              </li>
-              <li className="variant-wrapper">
-                <input required type="radio" name="variant" id="variant-5" />
-                <label htmlFor="variant-5">5</label>
-              </li>
+              {VariantData &&
+                VariantData.map((elem) => (
+                  <VariantAnswerItem id={elem.id} variantText={elem.text} />
+                ))}
             </ul>
-            <AppButton buttonText={"Далее"}/>
+            <AppButton buttonText={"Далее"} onClick={clickHandler} />
           </div>
         </div>
       </div>

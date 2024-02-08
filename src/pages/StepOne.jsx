@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
 import { AppInput } from "../components/AppInput";
+import { useNavigate } from "react-router-dom";
 
 const StepOne = () => {
-  const [nameValue, setNameValue] = useState("");
-  const [nameError, setNameError] = useState(false);
-  useEffect(() => {
-    if (!nameValue) {
-      setNameError(true);
-    } else {
-      setNameError(false);
+  const navigate = useNavigate();
+  const [textValue, setTextValue] = useState("");
+  const [textError, setTextError] = useState(false);
+  const goToNextPage = () => {
+    if (!textError) {
+      navigate("/step-two")
     }
-  });
-  useEffect(() => {
-    console.log(nameValue);
-  }, [nameValue]);
+  }
+  const handlerInputText = (value) => {
+    setTextValue(value);
+    validateText();
+  }; 
+  const validateText = () => {
+    if (!textValue) {
+      setTextError(true);
+    } else {
+      setTextError(false);
+    }
+  };
+  const clickHandler = ()=>{
+    validateText();
+    goToNextPage()
+  }
   return (
     <div className="container">
       <div className="wrapper">
@@ -40,15 +52,15 @@ const StepOne = () => {
               headingText={"1. Занимательный вопрос"}
             />
             <AppInput
-              value={nameValue}
-              onChange={setNameValue}
-              hasError={nameError}
+              value={textValue}
+              onChange={(value) => handlerInputText(value)}
+              hasError={textError}
               errorText={"Введите номер в правильном формате например"}
               name={"answer"}
               inputPlaceholder={"Ваш ответ"}
               inputType={"text"}
             />
-            <AppButton buttonText={"Далее"} />
+            <AppButton buttonText={"Далее"} onClick={clickHandler}/>
           </div>
         </div>
       </div>

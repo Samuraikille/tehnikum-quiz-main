@@ -2,6 +2,7 @@ import React from "react";
 import { Heading } from "../components/Heading";
 import { AppButton } from "../components/AppButton";
 import { VariantAnswerItem } from "../components/VariantAnswerItem";
+import { useNavigate } from "react-router-dom";
 const VariantData = [
   {
     id: "variant-1",
@@ -20,7 +21,18 @@ const VariantData = [
     text: "Ваш ответ",
   },
 ];
+
 const StepTwo = () => {
+  const navigate = useNavigate();
+
+  const goToNextPage = () => {
+    if (VariantAnswerItem) {
+      navigate("/step-three");
+    }
+  };
+  const clickHandler = () => {
+    goToNextPage();
+  };
   return (
     <div className="container">
       <div className="wrapper">
@@ -30,7 +42,7 @@ const StepTwo = () => {
               <span className="indicator__description">
                 Скидка за прохождение опроса:
               </span>
-              <span className="indicator__value">15%</span>
+              <span className="indicator__value">30%</span>
             </div>
             <div className="indicator__progressbar">
               <div className="indicator__unit indicator__unit-1 _active"></div>
@@ -50,7 +62,7 @@ const StepTwo = () => {
                   <VariantAnswerItem id={elem.id} variantText={elem.text} />
                 ))}
             </ul>
-            <AppButton buttonText={"Далее"} />
+            <AppButton buttonText={"Далее"} onClick={clickHandler} />
           </div>
         </div>
       </div>
