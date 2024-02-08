@@ -1,8 +1,8 @@
 import React from "react";
 import { Heading } from "../components/Heading";
-import { AppButton } from "../components/AppButton";
+import { LinkButton } from "../components/LinkButton";
 import { EmojiItem } from "../components/EmojiItem";
-import { useNavigate } from "react-router-dom";
+import { ProgressBar } from "../components/ProgressBar";
 const EmojiData = [
   {
     id: "variant-1",
@@ -27,32 +27,11 @@ const EmojiData = [
 ];
 
 const StepThree = () => {
-  const navigate = useNavigate();
-
-  const goToNextPage = () => {
-      navigate("/step-four");  
-  };
-  const clickHandler = () => {
-    goToNextPage();
-  };
   return (
     <div className="container">
       <div className="wrapper">
         <div className="emoji-quiz">
-          <div className="indicator">
-            <div className="indicator__text">
-              <span className="indicator__description">
-                Скидка за прохождение опроса:
-              </span>
-              <span className="indicator__value">55%</span>
-            </div>
-            <div className="indicator__progressbar">
-              <div className="indicator__unit indicator__unit-1 _active"></div>
-              <div className="indicator__unit indicator__unit-2 _active"></div>
-              <div className="indicator__unit indicator__unit-3"></div>
-              <div className="indicator__unit indicator__unit-4"></div>
-            </div>
-          </div>
+          <ProgressBar currentStep={3}/>
           <div className="question">
             <Heading headingType={"h2"} headingText={"3. Занимательный вопрос"}/>
             <ul className="emoji-variants">
@@ -60,7 +39,7 @@ const StepThree = () => {
                 <EmojiItem id={elem.id} emoji={elem.emoji} variantText={elem.text} />
               ))}
             </ul>
-            <AppButton buttonText={"Далее"} onClick={clickHandler}/>
+            <LinkButton path="/step-four" buttonText="Далее"/>
           </div>
         </div>
       </div>

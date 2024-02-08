@@ -1,8 +1,8 @@
 import React from "react";
 import { Heading } from "../components/Heading";
-import { AppButton } from "../components/AppButton";
 import { VariantAnswerItem } from "../components/VariantAnswerItem";
-import { useNavigate } from "react-router-dom";
+import { LinkButton } from "../components/LinkButton";
+import { ProgressBar } from "../components/ProgressBar";
 const VariantData = [
   {
     id: "variant-1",
@@ -23,34 +23,11 @@ const VariantData = [
 ];
 
 const StepTwo = () => {
-  const navigate = useNavigate();
-
-  const goToNextPage = () => {
-    if (VariantAnswerItem) {
-      navigate("/step-three");
-    }
-  };
-  const clickHandler = () => {
-    goToNextPage();
-  };
   return (
     <div className="container">
       <div className="wrapper">
         <div className="variants-quiz">
-          <div className="indicator">
-            <div className="indicator__text">
-              <span className="indicator__description">
-                Скидка за прохождение опроса:
-              </span>
-              <span className="indicator__value">30%</span>
-            </div>
-            <div className="indicator__progressbar">
-              <div className="indicator__unit indicator__unit-1 _active"></div>
-              <div className="indicator__unit indicator__unit-2"></div>
-              <div className="indicator__unit indicator__unit-3"></div>
-              <div className="indicator__unit indicator__unit-4"></div>
-            </div>
-          </div>
+          <ProgressBar currentStep={2}/>
           <div className="question">
             <Heading
               headingType={"h2"}
@@ -62,7 +39,7 @@ const StepTwo = () => {
                   <VariantAnswerItem id={elem.id} variantText={elem.text} />
                 ))}
             </ul>
-            <AppButton buttonText={"Далее"} onClick={clickHandler} />
+            <LinkButton path="/step-three" buttonText="Далее"/>
           </div>
         </div>
       </div>
